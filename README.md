@@ -1,3 +1,2 @@
 # leetcode
-## Code for leetcode questions
-### All codes in Python
+#### Answers for leetcode questions. All of them are in Python
