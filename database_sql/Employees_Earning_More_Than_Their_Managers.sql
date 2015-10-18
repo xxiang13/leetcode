@@ -26,7 +26,7 @@ For the above table, Joe is the only employee who earns more than his manager.
 
 /* Try 1: 
 
-Wrong answer under condition more than one employees has a same manager
+Wrong answer under condition more than one employees have a same manager
 Sub-table b would generate repetitive manager rows, so final output would be repetitive employee
 Exmaple table: 
 +----+-------+--------+-----------+
