@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Jun 20 21:19:26 2016
+Created on Mon Jun 20
 
-@author: apple
+@author: Xiang Li
 """
 
 '''
