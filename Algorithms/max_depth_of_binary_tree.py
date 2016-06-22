@@ -33,28 +33,27 @@ def maxDepth(root):
     :type root: TreeNode
     :rtype: int
     """
-    if root:
-        node_to_visit = [root]
-        num_parents = len(node_to_visit)
-        level = 1
-        while node_to_visit:
-            i = 1
-            while i <= num_parents:
-                node = node_to_visit.pop(0)
+    if not root:
+        return 0
+        
+    queue = [root]
+    num_parents = len(queue)
+    level = 1
+    while queue:
+        i = 1
+        while i <= num_parents:
+            node = queue.pop(0)
+            
+            if node.left:
+                queue.append(node.left)               
+            if node.right:
+                queue.append(node.right)
                 
-                if node.left:
-                    node_to_visit.append(node.left)               
-                if node.right:
-                    node_to_visit.append(node.right)
-                    
-                i += 1
-    
-            num_parents = len(node_to_visit)
-            if num_parents != 0:
-                level += 1
-    else:
-        level = 0
-    
+            i += 1
+
+        num_parents = len(queue)
+        if num_parents != 0:
+            level += 1
     return level
 
 #%% method 2: use recursion
