@@ -40,10 +40,7 @@ class Solution(object):
         current_node = head
         while current_node.next:
                 if current_node.next.val == current_node.val:
-                    if current_node.next.next:
-                        current_node.next = current_node.next.next
-                    else:
-                        current_node.next = None 
+                    current_node.next = current_node.next.next
                 else:
                     current_node = current_node.next
             
