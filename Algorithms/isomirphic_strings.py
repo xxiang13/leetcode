@@ -52,5 +52,10 @@ class Solution(object):
         return True
 
 #%%
-test = Solution()
-test.isIsomorphic("egg","add")
+cases = {("egg","add"):True,
+         ("foo","bar"):False,
+         ("paper","title"):True,
+         ("ab","aa"): False}
+    
+for case in cases:
+    assert test.isIsomorphic(*case) == cases[case]
