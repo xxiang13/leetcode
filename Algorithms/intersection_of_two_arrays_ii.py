@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Aug  1 21:53:38 2016
+Created on Mon Aug  1
 
-@author: apple
+@author: Xiang Li
 """
 
 '''
@@ -50,11 +50,37 @@ Method 3: (sort) and two pointers
 
 one pointer iterate larger array, 2nd pointer iterage smaller array
 
-1st pointer move if its value less than 2nd pointers
-if meet same value, both ponters move to right by 1 until finishing iterating
-smaller array
+1st pointer move to right if its value < 2nd pointers
+2nd pointer move to right if its value < 1st pointers
+if meet same value, both ponters move to right by 1 and save the value
+until finishing iterating smaller array
 
 Worse case time complexity O(m+n) since linearly iterate both arrays
 Space complexity O(1)
 
 '''
+
+class Solution(object):
+    def intersect(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+        """
+        nums1.sort(), nums2.sort()  # Make sure it is sorted, doesn't count in time.
+
+        intersection = []
+        
+        i1, i2 = 0, 0
+        while i1 < len(nums1) and i2 < len(nums2):
+        # iterate until smaller arrays finished
+            if nums1[i1] < nums2[i2]:
+                i1 += 1
+            elif nums1[i1] > nums2[i2]:
+                i2 += 1
+            else:
+                intersection += nums1[i1],
+                i1 += 1
+                i2 += 1
+        
+        return intersection
