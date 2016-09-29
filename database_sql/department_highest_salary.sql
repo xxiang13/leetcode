@@ -30,8 +30,18 @@ IT department and Henry has the highest salary in the Sales department.
 +------------+----------+--------+
 */
 
+/* Method 1*/
 select D.Name Department, E.Name Employee, A.Salary
 from Employee E, Department D,
 (select DepartmentId, max(salary) salary from Employee group by DepartmentId) A
 where E.DepartmentId = D.Id and A.DepartmentId = D.Id
 and E.Salary = A.salary;
+
+
+/* Method 2*/
+-- use correlative sub query to get highest salary for corresponding department
+
+select D.Name as Department, E.Name as Employee, E.Salary as Salary
+from Employee E
+inner join Department D on E.DepartmentId=D.Id
+where salary = (select max(salary) from Employee where DepartmentId=E.DepartmentId)

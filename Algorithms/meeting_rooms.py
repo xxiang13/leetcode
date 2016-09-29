@@ -13,7 +13,7 @@ For example, Given [[0, 30],[5, 10],[15, 20]], return false.
 '''
 
 '''
-Solution: sort staring time, if end time after less than end time before,
+Solution: sort staring time, if end time after less than starting time before,
 it means two meeting overlaped -> return False. Check until end, if no overlaps,
 return True
 '''
@@ -28,7 +28,7 @@ class Solution:
         print(len(intervals))
         
         for i in range(len(intervals)-1):
-            if intervals[i][1] > intervals[i+1][1]:
+            if intervals[i][1] > intervals[i+1][0]:
                 return False
         
         return True

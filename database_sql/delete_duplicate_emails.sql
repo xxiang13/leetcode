@@ -20,7 +20,7 @@ For example, after running your query, the above Person table should have the fo
 +----+------------------+
 */
 
--- use group by return distinct email and generate row number and assign to Id
-select Email, @curRow := @curRow + 1 AS Id
-from Person 
-group by Email;
+-- use correlative sub query to get first ID for each unique email
+select Id, Email
+from Person P
+where Id = (select min(Id) from Person where Email=P.Email)

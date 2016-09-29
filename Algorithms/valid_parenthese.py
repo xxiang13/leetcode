@@ -38,18 +38,17 @@ def isValid(s):
         closeP = [')',']','}']
         
         check = []
-        for i in range(len(s)):
-            if s[i] in openP:
-                check.append(s[i])
+        for c in s:
+            if c in openP:
+                check.append(c)
                 
-            if s[i] in closeP:
-                if len(check) != 0:
-                    if openP.index(check.pop()) != closeP.index(s[i]):
-                        return False
-                else:
+            if c in closeP:
+                if not check:
                     return False
+                else if c != check.pop():
+                        return False
                     
-        return len(check) == 0
+        return True
 
 #%%Test
 s="{()}"

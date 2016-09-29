@@ -28,3 +28,21 @@ For example, given the above Scores table, your query should generate the follow
 +-------+------+
 */
 
+
+/* Method 1 */
+# Alternative (from kamyu)
+ SELECT Score,  (SELECT COUNT(DISTINCT(Score))
+ 	             FROM  Scores b
+ 	             WHERE b.Score > a.Score) + 1 AS Rank
+FROM Scores a
+ORDER by Score DESC
+
+
+/* Method 2*/
+-- in postgreSQL, use DENSE_RANK()
+-- reference link: https://blog.jooq.org/2014/08/12/the-difference-between-row_number-rank-and-dense_rank/
+
+SELECT Score, 
+  	   DENSE_RANK() OVER(ORDER BY Score desc) as Rank
+FROM Scores
+ORDER BY 2 desc

@@ -20,10 +20,4 @@ Note: All emails are in lowercase.
 
 */
 
-
--- Try 1: accepted but too slow
-select distinct(a.Email) from Person a, Person b 
-where a.ID != b.ID and a.Email = b.Email;
-
--- Try 2: faster
 select Email from Person group by Email having count(Email) > 1;

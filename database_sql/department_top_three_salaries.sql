@@ -1,4 +1,4 @@
-'''
+/*
 The Employee table holds all employees. Every employee has an Id, and there is also a column
  for the department Id.
 
@@ -32,11 +32,10 @@ For the above tables, your SQL query should return the following rows.
 | Sales      | Henry    | 80000  |
 | Sales      | Sam      | 60000  |
 +------------+----------+--------+
-'''
+*/
 
 
-
-
+## method 1
 
 # given departmentId, get top 3 salary using correlated subquery
 

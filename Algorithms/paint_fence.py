@@ -29,7 +29,7 @@ assume total number up to current fences M(i)
 current fence can have two result: same color as previous fence or different
 
 same color - means previous fence has different color with the one before it
-precious fence can choose k-1 colors, current fence since same color with
+previous fence can choose k-1 colors, current fence since same color with
 previous one, can think they as a same fence, so for them can choose k-1. 
 --> M(i) = (k-1)* M(i-2)
 

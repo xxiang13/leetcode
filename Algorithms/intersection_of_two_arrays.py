@@ -20,7 +20,7 @@ The result can be in any order.
 '''
 worse case: no duplicated value in both list, 
 need to compare elements of one of the sets
-time efficiency O(n)
+time efficiency O(n1*n2)
 '''
 def intersection(nums1, nums2):
     """
